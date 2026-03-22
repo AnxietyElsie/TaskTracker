@@ -8,13 +8,6 @@ import (
 )
 
 func main() {
-	fmt.Println("TaskTracker CLI v0.1")
-	fmt.Println("Welcome to TaskTracker! What do u want to do today?")
-	fmt.Println("use    task-cli help     to get the information about commands")
-
-	if os.Args[0] != "task-cli" {
-		fmt.Println("Error: invalid command. Start your commands with 'task-cli'!")
-	}
 
 	if len(os.Args) < 2 {
 		fmt.Println("Error: invalid command")
@@ -53,6 +46,8 @@ func main() {
 		service.UpdateStatus(os.Args, id)
 	case "help":
 		helper()
+	case "hello":
+		hello()
 	default:
 		fmt.Print("Invalid command!")
 		return
@@ -70,4 +65,10 @@ func helper() {
 	fmt.Println("task-cli list *status*  -show tasks with this status; enter a status without *: todo/done/in-progress")
 	fmt.Println("task-cli mark *status* [id]  -mark a tsk with status; enter id without [] and one status without *: todo/done/in-progress")
 	fmt.Println("task-cli update [id] \"Your updated task\"  -update a description of the task; enter id without []")
+}
+
+func hello() {
+	fmt.Println("TaskTracker CLI v0.1")
+	fmt.Println("Welcome to TaskTracker! What do u want to do today?")
+	fmt.Println("use    task-cli help     to get the information about commands")
 }
