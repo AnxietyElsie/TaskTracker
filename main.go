@@ -38,7 +38,7 @@ func main() {
 		}
 		service.UpdateTask(os.Args, id)
 	case "mark":
-		id, err := strconv.Atoi(os.Args[2])
+		id, err := strconv.Atoi(os.Args[3])
 		if err != nil {
 			fmt.Println("Error reading third argument: ", err)
 			return
@@ -46,8 +46,10 @@ func main() {
 		service.UpdateStatus(os.Args, id)
 	case "help":
 		helper()
+		return
 	case "hello":
 		hello()
+		return
 	default:
 		fmt.Print("Invalid command!")
 		return
@@ -63,7 +65,7 @@ func helper() {
 	fmt.Println("task-cli delete *index*  -delete a task with this index; enter the index without *")
 	fmt.Println("task-cli list  -show all tasks")
 	fmt.Println("task-cli list *status*  -show tasks with this status; enter a status without *: todo/done/in-progress")
-	fmt.Println("task-cli mark *status* [id]  -mark a tsk with status; enter id without [] and one status without *: todo/done/in-progress")
+	fmt.Println("task-cli mark *status* [id]  -mark a task with status; enter id without [] and one status without *: todo/done/in-progress")
 	fmt.Println("task-cli update [id] \"Your updated task\"  -update a description of the task; enter id without []")
 }
 

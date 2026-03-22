@@ -11,7 +11,7 @@ func UpdateStatus(args []string, id int) error {
 	tasks := storage.LoadTasks()
 
 	if len(args) < 2 {
-		return fmt.Errorf("To update your task's status use format: 'task-cli <mark> [id]'")
+		return fmt.Errorf("To update your task's status use format: '<mark> [id]'")
 	}
 
 	for i, t := range tasks {
